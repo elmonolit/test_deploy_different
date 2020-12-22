@@ -1,0 +1,13 @@
+{% extends 'article/base.html' %}
+{% block title %}
+Статьи
+{% endblock %}
+{% block content %}
+    {% if article_list%}
+        {% for article in article_list %}
+            {{ article }}
+        {% endfor %}
+    {% else %}
+        Статаей пока нет
+    {% endif %}
+{% endblock %}
