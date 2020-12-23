@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<a href="{% url 'login' %}">Login</a>
+{% if user.is_authenticated %}
+    hi, {{ user.username }}<img src="{{ user.userprofile.pic.url }}" height="25" width="25">
+    <a href="#">Создать</a><br>
+    <a href="{% url 'logout' %}">Выход</a>
+{% else %}
+    <a href="{% url 'sign_up' %}">Регистрация</a>
+{% endif %}
+
 {% block content %}
 
 {% endblock %}

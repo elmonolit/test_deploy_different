@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'articles/base.html' %}
+{#{% load static %}#}
+{% block title %}
+{{ article.title }}
+{% endblock %}
+{% block content %}
+    {{ article.title }}<br>
+    {{ article.description }}<br>
+    {% if article.img %}
+    <img src="{{ article.img.url }}">
+    {% endif %}
+{% endblock %}

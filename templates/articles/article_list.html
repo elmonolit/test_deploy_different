@@ -1,13 +1,21 @@
-{% extends 'article/base.html' %}
+{% extends 'articles/base.html' %}
+{% load static %}
 {% block title %}
 Статьи
 {% endblock %}
 {% block content %}
-    {% if article_list%}
+
+{#    <img src="{% static 'image.jpg' %}"#}
+    {% if article_list %}
         {% for article in article_list %}
-            {{ article }}
+            <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3><br>
+            {{ article.description }}<br>
+            {% if article.img %}
+            <img src="{{ article.img.url }}" height="100">
+            {% endif %}
         {% endfor %}
     {% else %}
-        Статаей пока нет
+        Статей пока нет
+        <h4><a href="#">Создать</a></h4>
     {% endif %}
 {% endblock %}
