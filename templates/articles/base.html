@@ -6,12 +6,16 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<a href="{% url 'login' %}">Login</a>
+
 {% if user.is_authenticated %}
-    hi, {{ user.username }}<img src="{{ user.userprofile.pic.url }}" height="25" width="25">
-    <a href="#">Создать</a><br>
-    <a href="{% url 'logout' %}">Выход</a>
+    hi,  <a href="{% url 'profile_view' user.username %}">{{ user.username }}</a>
+    <img src="{{ user.userprofile.pic.url }}" height="25" width="25">
+    <a href="{% url 'logout' %}">Выход</a><br>
+
+    <a href="{% url 'article_create' %}">Создать</a><br>
+
 {% else %}
+    <a href="{% url 'login' %}">Login</a>
     <a href="{% url 'sign_up' %}">Регистрация</a>
 {% endif %}
 

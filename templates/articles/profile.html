@@ -1,0 +1,10 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+{% if article_list %}
+{% for article in article_list %}
+    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a> <br>
+    {% endfor %}
+{% else %}
+    No articles
+{% endif %}
+{% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'articles/base.html' %}
-{#{% load static %}#}
 {% block title %}
 {{ article.title }}
 {% endblock %}
 {% block content %}
-    {{ article.title }}<br>
+    <h3>{{ article.title }}</h3><br>
+        {{ article.author.username}}<br>
     {{ article.description }}<br>
     {% if article.img %}
     <img src="{{ article.img.url }}">
