@@ -1,0 +1,9 @@
+
+
+{% if search_list %}
+    {% for article in search_list %}
+        <a href="{{ article.get_absolute_url }}">{{ article }}</a>
+    {% endfor %}
+{% else %}
+Статей нет
+{% endif %}

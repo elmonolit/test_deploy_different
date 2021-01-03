@@ -1,9 +1,14 @@
 {% extends 'articles/base.html' %}
 {% load static %}
+<script src="{% static "js/ajax.js" %}"></script>
 {% block title %}
 Статьи
 {% endblock %}
 {% block content %}
+    <hr>
+<div class="container" id="search_list">
+
+</div>
 
 {#    <img src="{% static 'image.jpg' %}"#}
     {% if article_list %}
