@@ -5,11 +5,12 @@ $(document).ready(function () {
         function () {
             $(this).css('color', 'blue');
         });
+
     $("#search_bar").keyup( function(){
         var query;
-        query = $(this).val();
-        $.get('/search/', {search_bar: query}, function(data){
-            $('#search_list').html(data);
+        query = $(this).val();//.val() получает значения эдемента(input,select,textarea),(val(function()))
+        $.get('/search/', {search_bar: query}, function(data){ //$.get(url,data,success,dataType)
+            $('#search_list').html(data);// .html() - get the first element in html or insert smth in html
             });
         });
 })

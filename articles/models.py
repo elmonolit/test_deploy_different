@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from transliterate import translit
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.db.models.signals import post_delete, post_save
 
 
 class Article(models.Model):
@@ -27,3 +28,21 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
+
+
+
+
+
+
+# def art_del(sender, instance, **kwargs):
+#     print('deleted')
+#
+#
+# post_delete.connect(art_del, sender=Article)
+#
+#
+# def art_create(sender, instance, **kwargs):
+#     print('created')
+
+
+# post_save.connect(art_create, sender=Article)
